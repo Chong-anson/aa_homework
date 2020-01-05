@@ -7,26 +7,29 @@ class Map
     def set(k,v)
         if @keys.include?(k) 
             index = @keys.index(k) 
-            @value[index] = [k,v]
+            value[index] = [k,v]
         else 
-            @value <<[k,v]
+            value <<[k,v]
             @keys << k 
         end 
     end 
 
     def get(k)
         index = @keys.index(k)
-        @value[index][1]
+        value[index][1]
     end 
 
     def delete(k) 
         index = @keys.index(k) 
-        @value.delete_at(index)
+        value.delete_at(index)
         @keys.delete_at(index)
     end 
 
     def show 
-        p @values 
+        p values 
     end 
+
+    private 
+    attr_reader :value
 
 end 
